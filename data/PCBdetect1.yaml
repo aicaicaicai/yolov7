@@ -1,0 +1,25 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# PCBdetect dataset https://storage.googleapis.com/kaggle-data-sets/2611555/4461487/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20221107%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20221107T042539Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=9aab6dbdcec1f3794e8cc74efc3d5a8d4329991491c6e6e3a6de701cf4ae6d22923a1f7e80dd1c081b8b803b959fb328a25b3ff4c5fdd8f52499a172752cc2c2567fbf224a0bb9c7fbe6bab898c0fc56f6901d56485badb5360672006cf9938f840ed0fe98e3cc168a26ee864f54246968cac5eb17fd8a0bb30525c728ad8e9aa903a953c1e68e90d2010a79462e2854d2494234e426b2e342633005aa4872ef2e866515634df26d637f68a2d94d9a4b11bff63b18290b9dad4e33b760cd9f9ff3eb7fc3adbd96e19ee0a1c154ad2675c995ef662f48e19ddeaaec213545129af7b9f63fa03d6bcd173d7fad02375fb92278b4bdeab0d0b6969a0da6343339ec by ckc
+# Example usage: python train.py --data PCBdetect.yaml
+# kaggle
+# ├── working
+#     └── yolov5-6.2
+#         └── ...  ← all .py file
+# ├── input
+#     └── mypcbplusyolos
+#         └── images  ← train,val,test images
+#         └── labels  ← train,val,test labels
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../../input/yolopcbdata/YOLOPCBData/  # dataset root dir
+train: images/train  # train images (relative to 'path') 128 images
+val: images/val  # val images (relative to 'path') 128 images
+test: images/test # test images (optional)
+
+# Classes
+nc: 6  # number of classes
+names: ['missing_hole','mouse_bite','open_circuit','short','spur','spurious_copper']  # class names
+
+# Download script/URL (optional)
+download: https://www.kaggle.com
