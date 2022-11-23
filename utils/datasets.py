@@ -387,7 +387,26 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
 
         # Check cache
         self.label_files = img2label_paths(self.img_files)  # labels
-        cache_path = (p if p.is_file() else Path(self.label_files[0]).parent).with_suffix('.cache')  # cached labels
+        # cache_path = (p if p.is_file() else Path(self.label_files[0]).parent).with_suffix('.cache')  # cached labels
+
+        # My add
+        aps = str(Path(self.label_files[0]).parent)
+        bps = str(Path(self.label_files[0]).parent.parent)
+        cps = ''
+        for i in range(len(aps)):
+            if i < (len(bps)):
+                if aps[i] != bps[i]:
+                    cps += aps[i]
+            else:
+                cps += aps[i]
+        subpath = cps[1:]
+        # cache_path = Path('/kaggle/working/yolov5/data/cache').joinpath(
+        #     subpath).with_suffix('.cache')
+        cache_path = Path('/kaggle/working/yolov7/data/cache').joinpath(subpath)
+        cache_path = Path(str(cache_path) + ".cache")
+        del aps, bps, cps, subpath
+        ###
+
         if cache_path.is_file():
             cache, exists = torch.load(cache_path), True  # load
             #if cache['hash'] != get_hash(self.label_files + self.img_files) or 'version' not in cache:  # changed
